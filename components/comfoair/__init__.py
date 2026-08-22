@@ -190,7 +190,7 @@ async def to_code(config):
     # for delay()/Serial debug calls in beginAutoSpeed()) - both replaced with
     # a tiny ESP-IDF/FreeRTOS shim so this builds cleanly under framework: esp-idf.
     cg.add_library("can_common", None, "https://github.com/alexander-saborowski/can_common.git#067c9f6e9622671c1b366320e2a558204b4036f7")
-    cg.add_library("esp32_can", None, "https://github.com/alexander-saborowski/esp32_can.git#753e822bcac9560534b2fd89e193b4e6aab36414")
+    cg.add_library("esp32_can", None, "https://github.com/alexander-saborowski/esp32_can.git#4d84ea3e17f857b873592bbb155e466abbf09083")
 
 
     var = cg.new_Pvariable(config[CONF_ID])
