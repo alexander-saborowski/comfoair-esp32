@@ -189,7 +189,7 @@ async def to_code(config):
     # (can_common only for the 'boolean' typedef; esp32_can_builtin.cpp only
     # for delay()/Serial debug calls in beginAutoSpeed()) - both replaced with
     # a tiny ESP-IDF/FreeRTOS shim so this builds cleanly under framework: esp-idf.
-    cg.add_library("can_common", None, "https://github.com/alexander-saborowski/can_common.git#f050024a127b5c9843e82a4a5d500244aa1ada35")
+    cg.add_library("can_common", None, "https://github.com/alexander-saborowski/can_common.git#067c9f6e9622671c1b366320e2a558204b4036f7")
     cg.add_library("esp32_can", None, "https://github.com/alexander-saborowski/esp32_can.git#753e822bcac9560534b2fd89e193b4e6aab36414")
 
 
