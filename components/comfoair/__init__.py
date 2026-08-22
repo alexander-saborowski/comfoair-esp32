@@ -185,9 +185,12 @@ CONFIG_SCHEMA = cv.All(
 
 
 async def to_code(config):
-    cg.add_library("can_common", None, "https://github.com/collin80/can_common.git#8585f9dc807ebbeedeb509d74159f40f538d2d65")
-    # TechOverflow fork supports ESP-IDF 5.5+ and declares its can_common dependency.
-    cg.add_library("esp32_can", None, "https://github.com/TechOverflow/esp32_can.git#695ad3b38d6b9ef4b047d92d6cc7dbdcccea9f76")
+    # PATCHED forks: original can_common/esp32_can hard-required Arduino.h
+    # (can_common only for the 'boolean' typedef; esp32_can_builtin.cpp only
+    # for delay()/Serial debug calls in beginAutoSpeed()) - both replaced with
+    # a tiny ESP-IDF/FreeRTOS shim so this builds cleanly under framework: esp-idf.
+    cg.add_library("can_common", None, "https://github.com/alexander-saborowski/can_common.git#f050024a127b5c9843e82a4a5d500244aa1ada35")
+    cg.add_library("esp32_can", None, "https://github.com/alexander-saborowski/esp32_can.git#753e822bcac9560534b2fd89e193b4e6aab36414")
 
 
     var = cg.new_Pvariable(config[CONF_ID])
